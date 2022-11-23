@@ -25,3 +25,22 @@ variable "resource_tags" {
   type        = map(string)
   description = "The resource tags"
 }
+
+# Virtual Network
+
+variable "hub_vnet_name" {
+  type        = string
+  description = "The hub vnet name"
+}
+
+variable "spoke_vnet_name" {
+  type        = string
+  description = "The spoke vnet name"
+}
+
+variable "subnet_range" {
+  type        = list(string)
+  description = "The subnet range"
+}
+
+
