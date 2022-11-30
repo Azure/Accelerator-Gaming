@@ -4,6 +4,16 @@ variable "resource_group_name" {
   description = "The resource group name"
 }
 
+#Subscriptions
+variable "hub_subscription_id" {
+  type        = string
+  description = "Hub Subscription id"
+}
+
+variable "spoke_subscription_id" {
+  type        = string
+  description = "Spoke Subscription id"
+}
 
 # Resource
 variable "resource_suffix" {

@@ -31,6 +31,16 @@ variable "subnet_id" {
   description = "The subnet id"
 }
 
+variable "network_interface_name" {
+  type        = list(string)
+  description = "The network interface id"
+}
+
+variable "ip_configuration_name" {
+  type        = list(string)
+  description = "The ip configuration id"
+}
+
 # Resource Group
 
 variable "resource_group_name" {
