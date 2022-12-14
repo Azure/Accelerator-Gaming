@@ -27,18 +27,18 @@ resource "azurerm_virtual_network_peering" "peer1" {
   remote_virtual_network_id    = data.azurerm_virtual_network.hub_vnet.id
   allow_virtual_network_access = true
   allow_forwarded_traffic      = true
-  allow_gateway_transit        = true
-  use_remote_gateways          = true
+  allow_gateway_transit        = false
+  use_remote_gateways          = false
 }
 
 resource "azurerm_virtual_network_peering" "peer2" {
   name                         = var.peer2_name
-  resource_group_name          = var.rg_spoke
+  resource_group_name          = var.rg_hub
   virtual_network_name         = data.azurerm_virtual_network.hub_vnet.name
   remote_virtual_network_id    = azurerm_virtual_network.spoke_vnet.id
   allow_virtual_network_access = true
   allow_forwarded_traffic      = true
   allow_gateway_transit        = true
-  use_remote_gateways          = true
+  use_remote_gateways          = false
 }
 
