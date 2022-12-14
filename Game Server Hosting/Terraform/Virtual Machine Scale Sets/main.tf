@@ -5,9 +5,10 @@ provider "azurerm" {
 module "network" {
   source = "./network"
   # Resource Group
-  resource_group_name = var.resource_group_name
-  resource_location   = var.resource_location
-  resource_tags       = var.resource_tags
+  rg_spoke          = var.rg_spoke
+  resource_location = var.resource_location
+  resource_tags     = var.resource_tags
+  rg_hub            = var.rg_hub
   #Subscriptions
   hub_subscription_id   = var.hub_subscription_id
   spoke_subscription_id = var.spoke_subscription_id

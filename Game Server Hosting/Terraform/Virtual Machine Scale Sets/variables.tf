@@ -9,9 +9,14 @@ variable "resource_tags" {
   description = "The base tags for all the resources"
 }
 
-variable "resource_group_name" {
+variable "rg_spoke" {
   type        = string
   description = "The resource group name"
+}
+
+variable "rg_hub" {
+  type        = string
+  description = "the hub resource group name"
 }
 
 # Networking Variables

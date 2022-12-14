@@ -1,5 +1,5 @@
 # Resource Group
-variable "resource_group_name" {
+variable "rg_spoke" {
   type        = string
   description = "The resource group name"
 }
@@ -31,6 +31,11 @@ variable "resource_tags" {
 variable "hub_vnet_name" {
   type        = string
   description = "The hub vnet name"
+}
+
+variable "rg_hub" {
+  type        = string
+  description = "the hub resource group name"
 }
 
 variable "spoke_vnet_name" {
