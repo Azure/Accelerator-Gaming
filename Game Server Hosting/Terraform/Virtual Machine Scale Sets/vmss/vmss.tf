@@ -8,6 +8,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   admin_username      = var.admin_username
   admin_password      = var.admin_password
   zone_balance        = true
+  zones              = ["1", "2", "3"]
 
   source_image_reference {
     publisher = "MicrosoftWindowsServer"
@@ -32,5 +33,11 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
       subnet_id = var.subnet_id
     }
   }
+  upgrade_mode = "Manual"
+  automatic_os_upgrade_policy {
+    enable_automatic_os_upgrade = false
+    disable_automatic_rollback = true
+  }
+  license_type = "Windows_Server"
 }
 

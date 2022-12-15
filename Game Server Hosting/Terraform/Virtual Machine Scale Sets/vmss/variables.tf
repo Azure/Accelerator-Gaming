@@ -1,8 +1,4 @@
 # Resource
-variable "resource_instance" {
-  type        = string
-  description = "The resource instance"
-}
 
 variable "resource_location" {
   type        = string
@@ -41,12 +37,6 @@ variable "vmss_count" {
 }
 
 # Virtual Network
-
-variable "spoke_vnet_name" {
-  type        = string
-  description = "The hub vnet name"
-}
-
 variable "subnet_id" {
   type        = string
   description = "The subnet id"

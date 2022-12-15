@@ -92,11 +92,6 @@ variable "vmss_count" {
   type        = number
   description = "The number of VMSS instances"
 }
-variable "subnet_id" {
-  type        = string
-  description = "The subnet id"
-}
-
 variable "nic_name" {
   type        = string
   description = "The network interface id"
