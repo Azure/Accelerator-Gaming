@@ -9,6 +9,7 @@ variable "resource_tags" {
   description = "The base tags for all the resources"
 }
 
+# Networking Module Variables
 variable "rg_spoke" {
   type        = string
   description = "The resource group name"
@@ -18,8 +19,6 @@ variable "rg_hub" {
   type        = string
   description = "the hub resource group name"
 }
-
-# Networking Variables
 variable "hub_vnet_name" {
   type        = string
   description = "The hub vnet name"
@@ -65,3 +64,45 @@ variable "spoke_subscription_id" {
   description = "The spoke subscription id"
 }
 
+# Virtual Machine Scale Set Module Variables
+variable "rg_vmss" {
+  type        = string
+  description = "The resource group name"
+}
+variable "vmss_name" {
+  type        = string
+  description = "The name of the VMSS"
+}
+
+variable "admin_username" {
+  type        = string
+  description = "The admin username for the VMSS"
+}
+
+variable "admin_password" {
+  type        = string
+  description = "The admin password for the VMSS"
+}
+
+variable "vmss_sku" {
+  type        = string
+  description = "The VMSS SKU"
+}
+variable "vmss_count" {
+  type        = number
+  description = "The number of VMSS instances"
+}
+variable "subnet_id" {
+  type        = string
+  description = "The subnet id"
+}
+
+variable "nic_name" {
+  type        = string
+  description = "The network interface id"
+}
+
+variable "ipconfig_name" {
+  type        = string
+  description = "The ipconfig name"
+}

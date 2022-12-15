@@ -22,5 +22,22 @@ module "network" {
   peer1_name               = var.peer1_name
   peer2_name               = var.peer2_name
 
+
 }
 
+module "vmss" {
+  source = "./vmss"
+  # Resource Group
+  rg_vmss           = var.rg_vmss
+  resource_location = var.resource_location
+  resource_tags     = var.resource_tags
+  # Virtual Machine Scale Set
+  vmss_name      = var.vmss_name
+  vmss_sku       = var.vmss_sku
+  vmss_count     = var.vmss_count
+  admin_username = var.admin_username
+  admin_password = var.admin_password
+  nic_name       = var.nic_name
+  ipconfig_name  = var.ipconfig_name
+  subnet_id      = module.network.subnet_id
+}

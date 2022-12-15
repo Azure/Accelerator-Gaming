@@ -1,9 +1,4 @@
 # Resource
-variable "resource_suffix" {
-  type        = string
-  description = "The resource suffix for the naming convention ie: resource-workload-environment-location-instance"
-}
-
 variable "resource_instance" {
   type        = string
   description = "The resource instance"
@@ -57,19 +52,19 @@ variable "subnet_id" {
   description = "The subnet id"
 }
 
-variable "network_interface_name" {
+variable "nic_name" {
   type        = string
   description = "The network interface id"
 }
 
-variable "ip_configuration_name" {
+variable "ipconfig_name" {
   type        = string
   description = "The ip configuration id"
 }
 
 # Resource Group
 
-variable "resource_group_name" {
+variable "rg_vmss" {
   type        = string
   description = "The resource group name"
 }
