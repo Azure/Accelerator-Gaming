@@ -9,7 +9,6 @@ variable "resource_tags" {
   type        = map(string)
   description = "The resource tags"
 }
-
 # Virtual Machine Scale Set
 variable "vmss_name" {
   type        = string
