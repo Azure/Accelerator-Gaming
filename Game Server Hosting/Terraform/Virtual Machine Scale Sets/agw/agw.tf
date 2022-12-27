@@ -58,8 +58,8 @@ resource "azurerm_application_gateway" "agw" {
   }
   http_listener {
     name                           = var.http_listener_name
-    frontend_ip_configuration_name = "appGatewayFrontendIP"
-    frontend_port_name             = "http"
+    frontend_ip_configuration_name = var.frontend_ipconfig_name 
+    frontend_port_name             = var.frontend_port_name
     protocol                       = "Https"
     ssl_certificate_name           = "appGatewaySslCertificate"
   }
