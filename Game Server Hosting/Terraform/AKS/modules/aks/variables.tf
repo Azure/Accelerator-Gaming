@@ -31,5 +31,15 @@ variable "node_pool_name" {
   type        = string
   description = "The name of the node pool"
 }
-
-
+variable "aks_cluster_subnet_id" {
+  type        = string
+  description = "The subnet id"
+}
+variable "kub_version" {
+    type        = string
+    description = "The kubernetes version"
+}
+variable "os_sku" {
+    type        = string
+    description = "The OS SKU"  
+}
