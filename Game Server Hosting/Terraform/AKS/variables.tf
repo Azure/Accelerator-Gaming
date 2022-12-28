@@ -62,6 +62,7 @@ variable "peer2_name" {
   description = "The peer2 name"
 }
 # Kubernetes Module Variables
+# Cluster Variables
 variable "rg_aks" {
   type        = string
   description = "The AKS resource group name"
@@ -70,13 +71,17 @@ variable "aks_cluster_name" {
   type        = string
   description = "The AKS cluster name"
 }
-variable "dns_prefix" {
+variable "aks_dns_prefix" {
   type        = string
   description = "The AKS DNS prefix"
 }
-variable "kubernetes_version" {
+variable "k8s_version" {
   type        = string
   description = "The AKS Kubernetes version"
+}
+variable "default_node_pool_name" {
+  type        = string
+  description = "The AKS default node pool name"
 }
 variable "node_count" {
   type        = number
@@ -86,13 +91,18 @@ variable "node_vm_size" {
   type        = string
   description = "The AKS node VM size"
 }
-variable "default_node_pool_name" {
+variable "os_sku" {
+  type        = string
+  description = "The AKS OS SKU"
+}
+# Kubernetes Cluster Node Pool Variables
+variable "node_pool_name" {
   type        = string
   description = "The AKS default node pool name"
 }
-variable "node_pool_name" {
-  type        = string
-  description = "The AKS node pool name"
+variable "node_pool_count" {
+  type        = number
+  description = "The AKS node pool count"
 }
 variable "node_pool_vm_size" {
   type        = string

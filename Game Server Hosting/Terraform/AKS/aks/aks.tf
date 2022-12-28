@@ -4,11 +4,11 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   resource_group_name = var.rg_aks
   tags                = var.resource_tags
   dns_prefix          = var.aks_dns_prefix
-  kubernetes_version  = var.kub_version
+  kubernetes_version  = var.k8s_version
 
   default_node_pool {
     name                = var.default_node_pool_name
-    node_count          = 3
+    node_count          = var.node_count
     os_sku              = var.os_sku
     vm_size             = var.node_vm_size
     vnet_subnet_id      = var.aks_cluster_subnet_id
@@ -24,7 +24,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     network_plugin    = "azure"
     network_mode      = "transparent"
     network_policy    = "azure"
-    load_balancer_sku = "Standard"
+    load_balancer_sku = "standard"
   }
 
 
@@ -36,9 +36,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks_node_pool" {
   name                  = var.node_pool_name
   tags                  = var.resource_tags
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks_cluster.id
-  vm_size               = var.vm_size_node_pool
-  node_count            = 1
+  vm_size               = var.node_pool_vm_size
+  node_count            = var.node_pool_count
   priority              = "Regular"
-  eviction_policy       = "Delete"
 }
   
