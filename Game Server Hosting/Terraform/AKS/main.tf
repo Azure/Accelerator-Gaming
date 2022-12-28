@@ -17,6 +17,23 @@ module "network" {
   nsg_name                 = var.nsg_name
   peer1_name               = var.peer1_name
   peer2_name               = var.peer2_name
+}
 
-
+module "aks" {
+    source = "./aks"
+    # Resource Group
+    rg_aks           = var.rg_aks
+    resource_location = var.resource_location
+    resource_tags     = var.resource_tags
+    # AKS Cluster
+    aks_cluster_name = var.aks_cluster_name
+    dns_prefix       = var.dns_prefix
+    kubernetes_version = var.kubernetes_version
+    default_node_pool_name = var.default_node_pool_name
+    node_count = var.node_count
+    node_vm_size = var.node_vm_size
+    aks_cluster_subnet_id = module.network.subnet_id
+    # AKS Cluster Node Pool
+    node_pool_name = var.node_pool_name 
+    node_pool_vm_size = var.node_pool_vm_size
 }

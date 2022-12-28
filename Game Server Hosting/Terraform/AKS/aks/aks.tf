@@ -7,10 +7,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   kubernetes_version = var.kub_version
 
   default_node_pool {
-    name = "default"
+    name = var.default_node_pool_name
     node_count = 3
     os_sku = var.os_sku
-    vm_size = "Standard_D2_v2"
+    vm_size = var.node_vm_size
     vnet_subnet_id = var.aks_cluster_subnet_id
     enable_auto_scaling = true
     min_count = 1
@@ -26,6 +26,8 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     network_policy = "azure"
     load_balancer_sku = "Standard"
   }
+
+  
   
   
 }
