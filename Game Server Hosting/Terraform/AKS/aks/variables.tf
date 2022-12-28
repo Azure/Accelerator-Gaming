@@ -21,7 +21,7 @@ variable "aks_dns_prefix" {
   type        = string
   description = "The AKS DNS prefix"
 }
-variable "default_node_pool_name"{
+variable "default_node_pool_name" {
   type        = string
   description = "The name of the default node pool"
 }
@@ -43,10 +43,10 @@ variable "aks_cluster_subnet_id" {
   description = "The subnet id"
 }
 variable "kub_version" {
-    type        = string
-    description = "The kubernetes version"
+  type        = string
+  description = "The kubernetes version"
 }
 variable "os_sku" {
-    type        = string
-    description = "The OS SKU"  
+  type        = string
+  description = "The OS SKU"
 }

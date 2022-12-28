@@ -87,14 +87,14 @@ variable "node_vm_size" {
   description = "The AKS node VM size"
 }
 variable "default_node_pool_name" {
-    type        = string
-    description = "The AKS default node pool name"
+  type        = string
+  description = "The AKS default node pool name"
 }
 variable "node_pool_name" {
-    type        = string
-    description = "The AKS node pool name"
+  type        = string
+  description = "The AKS node pool name"
 }
 variable "node_pool_vm_size" {
-    type        = string
-    description = "The AKS node pool VM size"
+  type        = string
+  description = "The AKS node pool VM size"
 }
