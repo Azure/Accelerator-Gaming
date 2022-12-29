@@ -45,7 +45,10 @@ variable "aks_cluster_subnet_id" {
   type        = string
   description = "The subnet id"
 }
-
+variable "aks_law_id" {
+  type        = string
+  description = "The log analytics workspace id"
+}
 # Kubernetes Cluster Node Pool Variables
 variable "node_pool_name" {
   type        = string

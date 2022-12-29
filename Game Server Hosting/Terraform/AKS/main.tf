@@ -22,7 +22,17 @@ module "network" {
   peer1_name               = var.peer1_name
   peer2_name               = var.peer2_name
 }
-
+module "insights" {
+  source = "./insights"
+  # Resource Group
+  rg_insights = var.rg_insights
+  # Resource
+  resource_location = var.resource_location
+  resource_tags     = var.resource_tags
+  # Log Analytics Workspace
+  law_name          = var.law_name
+  law_solution_name = var.law_solution_name
+}
 module "aks" {
   source = "./aks"
   # Resource Group
@@ -39,10 +49,9 @@ module "aks" {
   node_vm_size           = var.node_vm_size
   aks_cluster_subnet_id  = module.network.subnet_id
   os_sku                 = var.os_sku
+  aks_law_id             = module.insights.id
   # AKS Cluster Node Pool
   node_pool_name    = var.node_pool_name
   node_pool_vm_size = var.node_pool_vm_size
   node_pool_count   = var.node_pool_count
-
-
 }

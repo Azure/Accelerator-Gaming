@@ -60,6 +60,19 @@ variable "peer2_name" {
   type        = string
   description = "The peer2 name"
 }
+#Insights Module Variables
+variable "rg_insights" {
+  type        = string
+  description = "The resource group name"
+}
+variable "law_name" {
+  type        = string
+  description = "The log analytics workspace name"
+}
+variable "law_solution_name" {
+  type        = string
+  description = "The log analytics workspace solution name"
+}
 # Kubernetes Module Variables
 # Cluster Variables
 variable "rg_aks" {
