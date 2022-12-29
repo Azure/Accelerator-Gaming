@@ -26,7 +26,8 @@ module "network" {
 module "aks" {
   source = "./aks"
   # Resource Group
-  rg_aks            = var.rg_aks
+  rg_aks = var.rg_aks
+  # Resource
   resource_location = var.resource_location
   resource_tags     = var.resource_tags
   # AKS Cluster

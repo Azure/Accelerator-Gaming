@@ -26,12 +26,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     network_policy    = "azure"
     load_balancer_sku = "standard"
   }
-
-
-
-
 }
-
 resource "azurerm_kubernetes_cluster_node_pool" "aks_node_pool" {
   name                  = var.node_pool_name
   tags                  = var.resource_tags
