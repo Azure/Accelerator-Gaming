@@ -1,0 +1,42 @@
+
+resource_location = "EastUS"
+resource_tags = {
+  "Environment" = "Dev"
+  "Owner"       = "Ops Team"
+  "Deployment"  = "Terraform"
+}
+
+#Networking Module
+rg_spoke                 = "network-vmss-Rg"
+rg_hub                   = "Network-Rg" /*This should be an exisiting resource*/
+hub_vnet_name            = "Hub-Vnet" /*This should be an exisiting resource*/
+spoke_vnet_name          = "vnet-vmss"
+spoke_vnet_address_space = ["10.1.0.0/20"]
+spoke_subnet_name        = "subne-vmsst"
+subnet_address_prefix    = ["10.1.0.0/24"]
+nsg_name                 = "Spoke-Nsg"
+peer1_name               = "hub-spoke-peer"
+peer2_name               = "spoke-hub-peer"
+
+hub_subscription_id   = "9e087dff-9c5b-4650-96ee-19cfe5269c5d"
+spoke_subscription_id = "9e087dff-9c5b-4650-96ee-19cfe5269c5d"
+
+# Insights Module
+rg_insights       = "insights-Rg"
+law_name          = "aks-workspace"
+law_solution_name = "aks-solution"
+
+# Kubernetes Module
+rg_aks                 = "aks-Rg"
+aks_cluster_name       = "aks-cluster"
+aks_dns_prefix         = "aks"
+k8s_version            = "1.25.4"
+os_sku                 = "Ubuntu"
+node_count             = 3
+node_vm_size           = "Standard_D2s_v3"
+default_node_pool_name = "nodepool1"
+node_pool_name         = "nodepool2"
+node_pool_vm_size      = "Standard_D2s_v3"
+node_pool_count        = 3
+
+
