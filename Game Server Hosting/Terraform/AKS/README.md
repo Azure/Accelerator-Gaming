@@ -36,5 +36,3 @@ The Game Server Hosting with AKS Terraform files are all written as individual f
 Validated on provider versions:
 
 - hashicorp azurerm v3.35.0
-
-## AKS Baseline
