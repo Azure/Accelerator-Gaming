@@ -1,5 +1,5 @@
 resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
-  count                      = var.vmss_count
+  count                      = 3
   name                       = var.vmss_name
   resource_group_name        = var.rg_vmss
   location                   = var.resource_location
@@ -11,7 +11,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   zones                      = ["1", "2", "3"]
   enable_automatic_updates   = true
   upgrade_mode               = "Automatic"
-  encryption_at_host_enabled = true
+  encryption_at_host_enabled = false
   tags                       = var.resource_tags
 
   source_image_reference {
