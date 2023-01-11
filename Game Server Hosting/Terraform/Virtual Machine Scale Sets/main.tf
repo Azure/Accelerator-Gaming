@@ -21,8 +21,6 @@ module "network" {
   nsg_name                 = var.nsg_name
   peer1_name               = var.peer1_name
   peer2_name               = var.peer2_name
-
-
 }
 
 module "vmss" {
