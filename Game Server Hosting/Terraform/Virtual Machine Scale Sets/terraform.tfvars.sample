@@ -5,6 +5,7 @@ resource_tags = {
   "Owner"       = "Ops Team"
   "Deployment"  = "Terraform"
 }
+prefix          = "Dev"
 
 #Networking Module
 rg_spoke                 = "network-vmss-Rg"

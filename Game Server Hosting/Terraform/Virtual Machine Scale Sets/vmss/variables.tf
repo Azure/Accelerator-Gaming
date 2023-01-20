@@ -14,11 +14,6 @@ variable "prefix" {
   description = "prefix for naming"
 }
 # Virtual Machine Scale Set
-variable "vmss_name" {
-  type        = string
-  description = "The name of the VMSS"
-}
-
 variable "admin_username" {
   type        = string
   description = "The admin username for the VMSS"
@@ -55,10 +50,5 @@ variable "ipconfig_name" {
   description = "The ip configuration id"
 }
 
-# Resource Group
 
-variable "rg_vmss" {
-  type        = string
-  description = "The resource group name"
-}
 

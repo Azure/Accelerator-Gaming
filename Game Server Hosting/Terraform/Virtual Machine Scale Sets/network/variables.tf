@@ -1,9 +1,3 @@
-# Resource Group
-variable "rg_spoke" {
-  type        = string
-  description = "The resource group name"
-}
-
 # Subscriptions
 variable "hub_subscription_id" {
   type        = string
@@ -37,29 +31,13 @@ variable "rg_hub" {
   type        = string
   description = "the hub resource group name"
 }
-
-variable "spoke_vnet_name" {
-  type        = string
-  description = "The spoke vnet name"
-}
-
 variable "spoke_vnet_address_space" {
   type        = list(string)
   description = "The spoke vnet address space"
 }
-variable "spoke_subnet_name" {
-  type        = string
-  description = "The spoke subnet name"
-}
-
 variable "subnet_address_prefix" {
   type        = list(string)
   description = "The subnet range"
-}
-
-variable "nsg_name" {
-  type        = string
-  description = "The nsg name"
 }
 
 variable "peer1_name" {

@@ -8,6 +8,10 @@ variable "resource_tags" {
   type        = map(string)
   description = "The base tags for all the resources"
 }
+variable "prefix" {
+  type        = string
+  description = "The prefix for naming"
+}
 
 # Networking Module Variables
 variable "rg_spoke" {
@@ -24,27 +28,15 @@ variable "hub_vnet_name" {
   description = "The hub vnet name"
 }
 
-variable "spoke_vnet_name" {
-  type        = string
-  description = "The hub vnet name"
-}
-
 variable "spoke_vnet_address_space" {
   type        = list(string)
   description = "The spoke vnet address space"
-}
-variable "spoke_subnet_name" {
-  type        = string
-  description = "The spoke subnet name"
 }
 variable "subnet_address_prefix" {
   type        = list(string)
   description = "The spoke subnet address prefix"
 }
-variable "nsg_name" {
-  type        = string
-  description = "The nsg name"
-}
+
 variable "peer1_name" {
   type        = string
   description = "The peer1 name"
@@ -65,15 +57,6 @@ variable "spoke_subscription_id" {
 }
 
 # Virtual Machine Scale Set Module Variables
-variable "rg_vmss" {
-  type        = string
-  description = "The resource group name"
-}
-variable "vmss_name" {
-  type        = string
-  description = "The name of the VMSS"
-}
-
 variable "admin_username" {
   type        = string
   description = "The admin username for the VMSS"
