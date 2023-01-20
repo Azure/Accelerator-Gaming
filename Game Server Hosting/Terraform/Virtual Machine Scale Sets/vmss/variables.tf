@@ -10,7 +10,7 @@ variable "resource_tags" {
   description = "The resource tags"
 }
 variable "prefix" {
-  type = string
+  type        = string
   description = "prefix for naming"
 }
 # Virtual Machine Scale Set

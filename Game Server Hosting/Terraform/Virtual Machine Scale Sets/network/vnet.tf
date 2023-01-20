@@ -1,8 +1,8 @@
 resource "azurerm_resource_group" "rg_network" {
-  name     = "rg-net-{var.resource_location}-{var.prefix}"
+  name     = "rg-net-{var.prefix}-{var.resource_location}"
   location = var.resource_location
   tags     = var.resource_tags
-}# Creating the Spoke VNet, Subnet, and NSG for your VMSS
+} # Creating the Spoke VNet, Subnet, and NSG for your VMSS
 resource "azurerm_virtual_network" "spoke_vnet" {
   name                = "vnet-vmss-{var.prefix}-{var.resource_location}"
   location            = azurerm_resource_group.rg_network.location
