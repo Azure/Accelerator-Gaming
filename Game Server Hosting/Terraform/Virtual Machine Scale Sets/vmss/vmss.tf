@@ -15,7 +15,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   admin_password           = var.admin_password
   zone_balance             = true
   zones                    = ["1", "2", "3"]
-  enable_automatic_updates = true /*Leave false with enable automatic os update policy set to true*/
+  enable_automatic_updates = true
   upgrade_mode             = "Automatic" /*Other choices: Manual or Rolling*/
   encryption_at_host_enabled = true
   tags                       = var.resource_tags
