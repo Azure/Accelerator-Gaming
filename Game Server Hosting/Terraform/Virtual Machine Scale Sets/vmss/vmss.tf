@@ -6,6 +6,7 @@ resource "azurerm_resource_group" "rg_vmss" {
 resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   count                      = 3
   name                       = "vmss-${var.prefix}-${var.resource_location}${count.index + 1}"
+  computer_name_prefix       = "vmss-${count.index + 1}"
   resource_group_name        = azurerm_resource_group.rg_vmss.name
   location                   = azurerm_resource_group.rg_vmss.location
   sku                        = var.vmss_sku
