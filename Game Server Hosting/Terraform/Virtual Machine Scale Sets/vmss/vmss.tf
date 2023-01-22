@@ -21,7 +21,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
     disable_automatic_rollback = false
     enable_automatic_os_upgrade = true
   }
-  encryption_at_host_enabled = false
+  encryption_at_host_enabled = true
   tags                       = var.resource_tags
 
   source_image_reference {
