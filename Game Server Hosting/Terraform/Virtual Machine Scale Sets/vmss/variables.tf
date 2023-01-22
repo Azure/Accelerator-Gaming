@@ -40,15 +40,4 @@ variable "subnet_id" {
   description = "The subnet id"
 }
 
-variable "nic_name" {
-  type        = string
-  description = "The network interface id"
-}
-
-variable "ipconfig_name" {
-  type        = string
-  description = "The ip configuration id"
-}
-
-
 

@@ -19,6 +19,10 @@ variable "resource_tags" {
   type        = map(string)
   description = "The resource tags"
 }
+variable "prefix" {
+  type        = string
+  description = "prefix for naming"
+}
 
 # Virtual Network
 

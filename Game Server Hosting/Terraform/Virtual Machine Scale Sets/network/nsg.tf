@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "nsg" {
-  name                = "nsg-vmss-{var.prefix}-{var.resource_location}"
+  name                = "nsg-vmss-${var.prefix}-${var.resource_location}"
   location            = var.resource_location
-  resource_group_name = azurerm_resource_group.rg_network.name
+  resource_group_name = azurerm_resource_group.rg_net.name
   tags                = var.resource_tags
   security_rule {
     name                       = "Allow-RDP"

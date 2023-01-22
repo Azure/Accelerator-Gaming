@@ -8,6 +8,7 @@ module "network" {
   resource_location = var.resource_location
   resource_tags     = var.resource_tags
   rg_hub            = var.rg_hub
+  prefix            = var.prefix
   #Subscriptions
   hub_subscription_id   = var.hub_subscription_id
   spoke_subscription_id = var.spoke_subscription_id
@@ -24,6 +25,7 @@ module "vmss" {
   # Resource Group
   resource_location = var.resource_location
   resource_tags     = var.resource_tags
+  prefix            = var.prefix
   # Virtual Machine Scale Set
   vmss_sku       = var.vmss_sku
   vmss_count     = var.vmss_count

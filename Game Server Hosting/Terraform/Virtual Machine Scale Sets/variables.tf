@@ -14,11 +14,6 @@ variable "prefix" {
 }
 
 # Networking Module Variables
-variable "rg_spoke" {
-  type        = string
-  description = "The resource group name"
-}
-
 variable "rg_hub" {
   type        = string
   description = "the hub resource group name"
@@ -74,13 +69,4 @@ variable "vmss_sku" {
 variable "vmss_count" {
   type        = number
   description = "The number of VMSS instances"
-}
-variable "nic_name" {
-  type        = string
-  description = "The network interface id"
-}
-
-variable "ipconfig_name" {
-  type        = string
-  description = "The ipconfig name"
 }
