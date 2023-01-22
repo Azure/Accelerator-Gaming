@@ -1,11 +1,11 @@
 resource "azurerm_resource_group" "rg_vmss" {
-  name     = "rg-vmss-{var.prefix}-{var.resource_location}"
+  name     = "rg-vmss-${var.prefix}-${var.resource_location}"
   location = var.resource_location
   tags     = var.resource_tags
 }
 resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   count                      = 3
-  name                       = "vmss-{var.prefix}-{resource.location}-{count.index + 1}"
+  name                       = "vmss-${var.prefix}-${count.index + 1}"
   resource_group_name        = azurerm_resource_group.rg_vmss.name
   location                   = azurerm_resource_group.rg_vmss.location
   sku                        = var.vmss_sku
@@ -32,12 +32,12 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   }
 
   network_interface {
-    name                          = "nic-vmss-{var.prefix}-{count.index + 1}"
+    name                          = "nic-vmss-${var.prefix}-${count.index + 1}"
     primary                       = true
     enable_accelerated_networking = false
     enable_ip_forwarding          = false
     ip_configuration {
-      name      = "ipconfig-{var.prefix}-{count.index + 1}"
+      name      = "ipconfig-${var.prefix}-${count.index + 1}"
       primary   = true
       subnet_id = var.subnet_id
     }
