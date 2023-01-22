@@ -17,6 +17,10 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   zones                      = ["1", "2", "3"]
   enable_automatic_updates   = true
   upgrade_mode               = "Automatic"
+  automatic_os_upgrade_policy {
+    disable_automatic_rollback = false
+    enable_automatic_os_upgrade = true
+  }
   encryption_at_host_enabled = false
   tags                       = var.resource_tags
 
@@ -33,7 +37,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   }
 
   network_interface {
-    name                          = "nic-vmss-${var.prefix}-${count.index + 1}"
+    name                          = "nic-vmss-${var.prefix}-${resource_location}-${count.index + 1}"
     primary                       = true
     enable_accelerated_networking = false
     enable_ip_forwarding          = false
