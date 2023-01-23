@@ -7,16 +7,11 @@ variable "resource_tags" {
   type        = map(string)
   description = "The resource tags"
 }
-# Resource Group
-variable "rg_aks" {
+variable "prefix" {
   type        = string
-  description = "The resource group name"
+  description = "prefix for naming"
 }
 # Kubernetes Cluster Variables
-variable "aks_cluster_name" {
-  type        = string
-  description = "The name of the AKS cluster"
-}
 variable "aks_dns_prefix" {
   type        = string
   description = "The AKS DNS prefix"
@@ -24,10 +19,6 @@ variable "aks_dns_prefix" {
 variable "k8s_version" {
   type        = string
   description = "The kubernetes version"
-}
-variable "default_node_pool_name" {
-  type        = string
-  description = "The name of the default node pool"
 }
 variable "node_count" {
   type        = number
@@ -50,10 +41,6 @@ variable "aks_law_id" {
   description = "The log analytics workspace id"
 }
 # Kubernetes Cluster Node Pool Variables
-variable "node_pool_name" {
-  type        = string
-  description = "The name of the node pool"
-}
 variable "node_pool_count" {
   type        = number
   description = "The number of nodes in the node pool"

@@ -4,19 +4,19 @@ resource "azurerm_resource_group" "rg_vmss" {
   tags     = var.resource_tags
 }
 resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
-  count                    = 3
-  name                     = "vmss-${var.prefix}-${var.resource_location}-${count.index + 1}"
-  computer_name_prefix     = "vmss-${count.index + 1}"
-  resource_group_name      = azurerm_resource_group.rg_vmss.name
-  location                 = azurerm_resource_group.rg_vmss.location
-  sku                      = var.vmss_sku
-  instances                = 2
-  admin_username           = var.admin_username
-  admin_password           = var.admin_password
-  zone_balance             = true
-  zones                    = ["1", "2", "3"]
-  enable_automatic_updates = true
-  upgrade_mode             = "Automatic" /*Other choices: Manual or Rolling*/
+  count                      = 3
+  name                       = "vmss-${var.prefix}-${var.resource_location}-${count.index + 1}"
+  computer_name_prefix       = "vmss-${count.index + 1}"
+  resource_group_name        = azurerm_resource_group.rg_vmss.name
+  location                   = azurerm_resource_group.rg_vmss.location
+  sku                        = var.vmss_sku
+  instances                  = 2
+  admin_username             = var.admin_username
+  admin_password             = var.admin_password
+  zone_balance               = true
+  zones                      = ["1", "2", "3"]
+  enable_automatic_updates   = true
+  upgrade_mode               = "Automatic" /*Other choices: Manual or Rolling*/
   encryption_at_host_enabled = true
   tags                       = var.resource_tags
   source_image_reference {
