@@ -32,4 +32,5 @@ module "vmss" {
   admin_username = var.admin_username
   admin_password = var.admin_password
   subnet_id      = module.network.subnet_id
+  pip_prefix_id  = module.network.pip_prefix_id
 }

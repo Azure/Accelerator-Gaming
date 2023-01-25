@@ -39,5 +39,6 @@ variable "subnet_id" {
   type        = string
   description = "The subnet id"
 }
+variable "pip_prefix_id" {
 
-
+}

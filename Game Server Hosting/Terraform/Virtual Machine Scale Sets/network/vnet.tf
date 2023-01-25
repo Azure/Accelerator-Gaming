@@ -12,6 +12,14 @@ resource "azurerm_virtual_network" "spoke_vnet" {
   tags                = var.resource_tags
 }
 
+resource "azurerm_public_ip_prefix" "vmss_pip_prefix" {
+  name                = "pip-vmss-${var.prefix}-${var.resource_location}"
+  location            = azurerm_resource_group.rg_net.location
+  resource_group_name = azurerm_resource_group.rg_net.name
+  tags                = var.resource_tags
+  prefix_length       = 28
+}
+
 resource "azurerm_subnet" "spoke_subnet" {
   name                 = "subnet-vmss-${var.prefix}-${var.resource_location}"
   resource_group_name  = azurerm_resource_group.rg_net.name
@@ -33,7 +41,7 @@ resource "azurerm_virtual_network_peering" "peer1" {
   allow_virtual_network_access = true
   allow_forwarded_traffic      = true
   allow_gateway_transit        = false
-  use_remote_gateways          = false
+  use_remote_gateways          = true
 }
 
 resource "azurerm_virtual_network_peering" "peer2" {
