@@ -31,16 +31,6 @@ variable "subnet_address_prefix" {
   type        = list(string)
   description = "The spoke subnet address prefix"
 }
-
-variable "peer1_name" {
-  type        = string
-  description = "The peer1 name"
-}
-variable "peer2_name" {
-  type        = string
-  description = "The peer2 name"
-}
-
 # Subscription variables
 variable "hub_subscription_id" {
   type        = string

@@ -16,8 +16,6 @@ module "network" {
   hub_vnet_name            = var.hub_vnet_name
   spoke_vnet_address_space = var.spoke_vnet_address_space
   subnet_address_prefix    = var.subnet_address_prefix
-  peer1_name               = var.peer1_name
-  peer2_name               = var.peer2_name
 }
 
 module "vmss" {
