@@ -16,8 +16,8 @@ subnet_address_prefix    = ["10.1.0.0/24"]
 peer1_name               = "hub-spoke-peer"
 peer2_name               = "spoke-hub-peer"
 
-hub_subscription_id   = "9e087dff-9c5b-4650-96ee-19cfe5269c5d"
-spoke_subscription_id = "9e087dff-9c5b-4650-96ee-19cfe5269c5d"
+hub_subscription_id   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+spoke_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 
 
