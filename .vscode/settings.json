@@ -4,5 +4,7 @@
         "eastus",
         "vmss",
         "vnet"
-    ]
+    ],
+    "markdown.showToolbar": true,
+    "preview.previewTheme": "Dark"
 }
