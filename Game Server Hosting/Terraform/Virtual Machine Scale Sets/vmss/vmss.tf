@@ -28,7 +28,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
   }
   os_disk {
     caching              = "ReadWrite"
-    storage_account_type = "Premium_ZRS"
+    storage_account_type = "Premium_LRS"
   }
   network_interface {
     name                          = "nic-vmss-${var.prefix}-${count.index + 1}"
