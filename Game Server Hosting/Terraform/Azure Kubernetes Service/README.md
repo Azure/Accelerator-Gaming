@@ -1,4 +1,4 @@
-# Deploying Game Server Hosts with VMSS
+# Deploying Game Server Hosts with AKS
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This accelerator is to be used as starter kit and you can expand its functionali
 
 ### Game Server Hosts Architecture
 
-This scenario deploys Game Server Hosts using Virtual Machine Scale Sets in a Spoke Virtual Network. This solution deploys a new:
+This scenario deploys Game Server Hosts using Azure Kubernetes Service in a Spoke Virtual Network. This solution deploys a new:
 
 - Spoke Network resources
   - Virtual Network
@@ -27,16 +27,17 @@ This scenario deploys Game Server Hosts using Virtual Machine Scale Sets in a Sp
     - Network Security Group
 
 - Game Server Host resources
-  - Three Virtual Machine Scale Sets
-    - Two Instances per Scale Set
-    - Deployed into multiple zones
-    - Marketplace Image
+  - Three AKS Cluster
+    - Default Node Pool
+    - Three Node Pools
 
-The Virtual Machine Scale Set Baseline Terraform files are all written as individual files each having a specific function. Variables have been created in all files for consistency, all changes to defaults are to be changed from the terraform.tfvars.sample file. In addition, module for network resources is in its own folder.
+- Insights
+  - Log Analytic Workspace
+  - Log Analytic Solution
 
 ## Prerequisites
 
-- Current version of the [Azure CLI](/<https://learn.microsoft.com/cli/azure/install-azure-cli)>
+- Current version of the [Azure CLI](/<https://learn.microsoft.com/cli/azure/install-azure-cli)
 - Current version of the Terraform CLI
 - An Azure Subscription(s) where you or an identity you manage has `Owner` [RBAC permissions](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 - Ensure Encryption at Host feature is already enabled on the subscription. To enable: az feature register --name EncryptionAtHost  --namespace Microsoft.Compute. To validate: az feature show --name EncryptionAtHost --namespace Microsoft.Compute
