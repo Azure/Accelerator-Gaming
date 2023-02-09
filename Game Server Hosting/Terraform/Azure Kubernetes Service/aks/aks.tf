@@ -1,8 +1,3 @@
-resource "azurerm_resource_group" "rg_aks" {
-  name     = "rg-aks-${var.prefix}-${var.resource_location}"
-  location = var.resource_location
-  tags     = var.resource_tags
-}
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
   name                = "aks-${var.prefix}-${var.resource_location}-${count.index + 1}"
   count               = 3
@@ -11,6 +6,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   tags                = var.resource_tags
   dns_prefix          = var.aks_dns_prefix
   kubernetes_version  = var.k8s_version
+  sku_tier            = Paid
   default_node_pool {
     name                = "akspool" /*Max limit of 12 characters*/
     node_count          = var.node_count
