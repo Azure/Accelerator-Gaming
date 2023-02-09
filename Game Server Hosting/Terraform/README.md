@@ -11,8 +11,6 @@ This folder is laid out hierarchically so that different levels of modules may b
 | Folder Name | Description |
 | --- | --- |
 | [Azure Kubernetes Service](./AKS) | This folder contains modules to deploy Game Servers using AKS. Modules include Networking, Insights, and AKS |
-| [Virtual Machine Scale Sets](./Virtual%20Machine%20Scale%20Sets/) | This folder contains modules to deploy Game Servers using Virtual Machine Scale Sets. Modules include Networking and VMSS |
-
 ## Deployment Steps
 
 1. Clone this repository onto the machine that will be used for development. *(Prerequisite: Ensure Terraform is installed and setup on your build machine prior to completing the next steps.*
