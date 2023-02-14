@@ -17,6 +17,7 @@ module "network" {
   hub_vnet_name            = var.hub_vnet_name
   spoke_vnet_address_space = var.spoke_vnet_address_space
   subnet_address_prefix    = var.subnet_address_prefix
+
 }
 module "insights" {
   source = "./insights"
@@ -34,12 +35,13 @@ module "aks" {
   # AKS Cluster
   aks_dns_prefix        = var.aks_dns_prefix
   k8s_version           = var.k8s_version
-  node_count            = var.node_count
-  node_vm_size          = var.node_vm_size
   aks_cluster_subnet_id = module.network.subnet_id
   os_sku                = var.os_sku
   aks_law_id            = module.insights.id
   # AKS Cluster Node Pool
-  node_pool_vm_size = var.node_pool_vm_size
-  node_pool_count   = var.node_pool_count
+  node_pool_vm_size  = var.node_pool_vm_size
+  node_pool_count    = var.node_pool_count
+  node_min_count     = var.node_min_count
+  node_max_count     = var.node_max_count
+  node_pip_prefix_id = module.network.node_pip_prefix_id
 }

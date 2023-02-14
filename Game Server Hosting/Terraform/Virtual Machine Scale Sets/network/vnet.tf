@@ -1,24 +1,28 @@
-# Creating the Spoke VNet, Subnet, and NSG for your VMSS
+resource "azurerm_resource_group" "rg_net" {
+  name     = "rg-net-${var.prefix}-${var.resource_location}"
+  location = var.resource_location
+  tags     = var.resource_tags
+
+} # Creating the Spoke VNet, Subnet, and NSG for your VMSS
 resource "azurerm_virtual_network" "spoke_vnet" {
-  name                = "vnet-aks-${var.prefix}-${var.resource_location}"
-  location            = azurerm_resource_group.rg_network.location
-  resource_group_name = azurerm_resource_group.rg_network.name
+  name                = "vnet-vmss-${var.prefix}-${var.resource_location}"
+  location            = azurerm_resource_group.rg_net.location
+  resource_group_name = azurerm_resource_group.rg_net.name
   address_space       = var.spoke_vnet_address_space
-  tags                = azurerm_resource_group.rg_network.tags
+  tags                = var.resource_tags
 }
 
-resource "azurerm_public_ip_prefix" "node_pip_prefix" {
-  name                = "pip-aks-${var.prefix}-${var.resource_location}"
-  location            = azurerm_resource_group.rg_network.location
-  resource_group_name = azurerm_resource_group.rg_network.name
+resource "azurerm_public_ip_prefix" "vmss_pip_prefix" {
+  name                = "pip-vmss-${var.prefix}-${var.resource_location}"
+  location            = azurerm_resource_group.rg_net.location
+  resource_group_name = azurerm_resource_group.rg_net.name
+  tags                = var.resource_tags
   prefix_length       = 28
-  sku                 = "Standard"
-  tags                = azurerm_resource_group.rg_network.tags
 }
 
 resource "azurerm_subnet" "spoke_subnet" {
   name                 = "subnet-vmss-${var.prefix}-${var.resource_location}"
-  resource_group_name  = azurerm_resource_group.rg_network.name
+  resource_group_name  = azurerm_resource_group.rg_net.name
   virtual_network_name = azurerm_virtual_network.spoke_vnet.name
   address_prefixes     = var.subnet_address_prefix
 }
@@ -31,13 +35,13 @@ resource "azurerm_subnet_network_security_group_association" "spoke_subnet_nsg" 
 # Creating the Peering between your Hub Vnet and Spoke Vnet
 resource "azurerm_virtual_network_peering" "peer1" {
   name                         = "peer1-${var.prefix}-${var.resource_location}"
-  resource_group_name          = azurerm_resource_group.rg_network.name
+  resource_group_name          = azurerm_resource_group.rg_net.name
   virtual_network_name         = azurerm_virtual_network.spoke_vnet.name
   remote_virtual_network_id    = data.azurerm_virtual_network.hub_vnet.id
   allow_virtual_network_access = true
   allow_forwarded_traffic      = true
   allow_gateway_transit        = false
-  use_remote_gateways          = false /* Set to True if you are peering to a Hub with a Gateway */
+  use_remote_gateways          = true
 }
 
 resource "azurerm_virtual_network_peering" "peer2" {
@@ -47,7 +51,7 @@ resource "azurerm_virtual_network_peering" "peer2" {
   remote_virtual_network_id    = azurerm_virtual_network.spoke_vnet.id
   allow_virtual_network_access = true
   allow_forwarded_traffic      = true
-  allow_gateway_transit        = false /* Set to True if you have a Gateway in your Hub network*/
+  allow_gateway_transit        = true
   use_remote_gateways          = false
 }
 

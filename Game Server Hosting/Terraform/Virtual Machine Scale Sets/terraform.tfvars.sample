@@ -1,0 +1,26 @@
+
+resource_location = "eastus"
+resource_tags = {
+  "Environment" = "Dev"
+  "Owner"       = "Ops Team"
+  "Deployment"  = "Terraform"
+  "Application" = "Game Server Hosting"
+}
+prefix = "dev"
+
+#Networking Module
+rg_hub                   = "Network-Rg" /*This should be an existing resource*/
+hub_vnet_name            = "Hub-Vnet" /*This should be an existing resource*/
+spoke_vnet_address_space = ["10.1.0.0/20"]
+subnet_address_prefix    = ["10.1.0.0/24"]
+
+hub_subscription_id   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+spoke_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+
+
+# Virtual Machine Scale Set Module
+vmss_sku       = "Standard_D2s_v3"
+vmss_count     = 4
+admin_username = "adminuser"
+admin_password = "P@ssw0rd1234"
