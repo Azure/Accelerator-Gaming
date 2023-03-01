@@ -1,4 +1,4 @@
-resource "azurerm_network_security_group" "nsg" {
+/* resource "azurerm_network_security_group" "nsg" {
   name                = "nsg-aks-${var.prefix}-${var.resource_location}"
   location            = var.resource_location
   resource_group_name = azurerm_resource_group.rg_network.name
@@ -15,3 +15,4 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
 }
+*/

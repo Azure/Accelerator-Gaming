@@ -23,10 +23,12 @@ resource "azurerm_subnet" "spoke_subnet" {
   address_prefixes     = var.subnet_address_prefix
 }
 
-resource "azurerm_subnet_network_security_group_association" "spoke_subnet_nsg" {
+/*
+  resource "azurerm_subnet_network_security_group_association" "spoke_subnet_nsg" {
   subnet_id                 = azurerm_subnet.spoke_subnet.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
+*/
 
 # Creating the Peering between your Hub Vnet and Spoke Vnet
 resource "azurerm_virtual_network_peering" "peer1" {

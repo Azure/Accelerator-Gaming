@@ -7,13 +7,15 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   dns_prefix          = var.aks_dns_prefix
   kubernetes_version  = var.k8s_version
   sku_tier            = "Paid"
+  node_resource_group = azurerm_kubernetes_cluster.aks_cluster[count.index].name
   default_node_pool {
     name                     = "aksdnp${count.index + 1}" /*Max limit of 12 characters*/
     tags                     = azurerm_resource_group.rg_aks.tags
     os_sku                   = var.os_sku
-    vm_size                  = var.node_pool_vm_size
+    vm_size                  = var.node_pool_vm_size  
     vnet_subnet_id           = var.aks_cluster_subnet_id
     enable_auto_scaling      = true
+    scale_down_mode          = "deallocate"
     min_count                = var.node_min_count
     max_count                = var.node_max_count
     node_count               = var.node_pool_count
@@ -21,17 +23,24 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     enable_node_public_ip    = true
     node_public_ip_prefix_id = var.node_pip_prefix_id
   }
+  maintenance_window {
+    allowed {
+      day  = "Sunday"
+      time = "23:00"
+    }
+  }
   identity {
     type = "SystemAssigned"
   }
   network_profile {
-    network_plugin    = "azure"
-    load_balancer_sku = "standard"
-    network_policy    = "azure"
+    load_balancer_sku = "Standard"
+    network_plugin  = "Azure"
+    network_policy = "Azure"
   }
   oms_agent {
     log_analytics_workspace_id = var.aks_law_id
   }
+
 }
 resource "azurerm_kubernetes_cluster_node_pool" "aks_node_pool" {
   name                     = "aksnp${count.index + 1}" /*Max limit of 12 characters*/
@@ -40,6 +49,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks_node_pool" {
   os_sku                   = var.os_sku
   vnet_subnet_id           = var.aks_cluster_subnet_id
   enable_auto_scaling      = true
+  scale_down_mode          = "deallocate"
   min_count                = var.node_min_count
   max_count                = var.node_max_count
   node_count               = var.node_pool_count
