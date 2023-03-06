@@ -41,6 +41,10 @@ variable "subnet_address_prefix" {
 # Kubernetes Module Variables
 # Cluster Variables
 
+variable "cluster_count" {
+  type        = number
+  description = "The AKS cluster count"
+}
 variable "aks_dns_prefix" {
   type        = string
   description = "The AKS DNS prefix"
@@ -56,17 +60,13 @@ variable "os_sku" {
 # Kubernetes Cluster Node Pool Variables
 variable "node_pool_count" {
   type        = number
-  description = "The AKS node pool count"
+  description = "Number of Node Pools to be created in the cluster"
 }
 variable "node_pool_vm_size" {
   type        = string
   description = "The AKS node pool VM size"
 }
-variable "node_min_count" {
+variable "node_count" {
   type        = number
-  description = "The AKS node pool minimum count"
-}
-variable "node_max_count" {
-  type        = number
-  description = "The AKS node pool maximum count"
+  description = "Number of nodes to be created in the pool"
 }

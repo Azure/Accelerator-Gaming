@@ -7,6 +7,3 @@ data "azurerm_virtual_network" "hub_vnet" {
   resource_group_name = var.rg_hub
 }
 
-
-
-

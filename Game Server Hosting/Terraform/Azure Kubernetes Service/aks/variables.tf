@@ -1,4 +1,4 @@
-# Resource
+// Resource
 variable "resource_location" {
   type        = string
   description = "The resource location, typically matches resource group location"
@@ -12,7 +12,7 @@ variable "prefix" {
   description = "prefix for naming"
 }
 
-# Kubernetes Cluster Variables
+// Kubernetes Cluster Variables
 variable "aks_dns_prefix" {
   type        = string
   description = "The AKS DNS prefix"
@@ -26,7 +26,11 @@ variable "aks_law_id" {
   description = "The log analytics workspace id"
 }
 
-# # Node Count for Default Pool and Node Pool
+// Node Count for Default Pool and Node Pool
+variable "cluster_count" {
+  type        = number
+  description = "The number of clusters to be created"
+}
 variable "os_sku" {
   type        = string
   description = "The OS SKU"
@@ -35,23 +39,23 @@ variable "aks_cluster_subnet_id" {
   type        = string
   description = "The subnet id"
 }
+variable "default_node_pip_prefix_id" {
+  type        = string
+  description = "The public ip prefix id for default node pool"
+}
 variable "node_pip_prefix_id" {
   type        = string
-  description = "The public ip prefix id"
+  description = "The public ip prefix id for node pool"
 }
 variable "node_pool_count" {
   type        = number
-  description = "The number of nodes in the node pool"
-}
-variable "node_min_count" {
-  type        = number
-  description = "The minimum number of nodes in the node pool"
-}
-variable "node_max_count" {
-  type        = number
-  description = "The maximum number of nodes in the node pool"
+  description = "The number of nodes pools to be created in the cluster"
 }
 variable "node_pool_vm_size" {
   type        = string
   description = "The VM size for the node pool"
+}
+variable "node_count" {
+  type        = number
+  description = "The number of nodes to be created in the pool"
 }
