@@ -1,4 +1,4 @@
-# Deploying Game Server Hosts with AKS
+# Deploying Game Server Hosts with Azure Kubernetes Services
 
 ## Table of Contents
 
@@ -24,12 +24,11 @@ This scenario deploys Game Server Hosts using Azure Kubernetes Service in a Spok
   - Virtual Network
     - Subnet
     - Public IP Addresses
-    - Network Security Group
 
 - Game Server Host resources
-  - Three AKS Cluster
+  - AKS Clusters
     - Default Node Pool
-    - Three Node Pools
+    - Node Pool
 
 - Insights
   - Log Analytic Workspace
@@ -58,8 +57,8 @@ There will be an existing Hub Virtual Network with either a Gateway with access 
 2. Before deploying, confirm the correct subscription
 3. Change directory to the Terraform folder
 4. Run `terraform init` to initialize this directory
-5. Run `terraform plan` to view the planned deployment
-6. Run `terraform apply` to confirm the deployment
+5. Run `terraform plan --var-file local.tfvars --plan.out ` to view the planned deployment
+6. Run `terraform apply plan.out && terraform show` to confirm the deployment
 
 [(Back to top)](#table-of-contents)
 

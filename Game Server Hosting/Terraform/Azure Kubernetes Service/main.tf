@@ -39,6 +39,7 @@ module "aks" {
   os_sku                = var.os_sku
   aks_law_id            = module.insights.id
   cluster_count         = var.cluster_count
+  dh_sku_name           = var.dh_sku_name
   # AKS Cluster Node Pool
   node_pool_vm_size          = var.node_pool_vm_size
   node_pool_count            = var.node_pool_count

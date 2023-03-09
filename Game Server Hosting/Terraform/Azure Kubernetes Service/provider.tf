@@ -17,4 +17,3 @@ provider "azurerm" {
   alias           = "spoke"
   subscription_id = var.spoke_subscription_id
 }
-

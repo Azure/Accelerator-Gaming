@@ -70,3 +70,7 @@ variable "node_count" {
   type        = number
   description = "Number of nodes to be created in the pool"
 }
+variable "dh_sku_name" {
+  type        = string
+  description = "The AKS disk size"
+}

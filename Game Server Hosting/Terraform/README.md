@@ -11,19 +11,19 @@ This folder is laid out hierarchically so that different levels of modules may b
 | Folder Name | Description |
 | --- | --- |
 | [Azure Kubernetes Service](./AKS) | This folder contains modules to deploy Game Servers using AKS. Modules include Networking, Insights, and AKS |
+
 ## Deployment Steps
 
-1. Clone this repository onto the machine that will be used for development. *(Prerequisite: Ensure Terraform is installed and setup on your build machine prior to completing the next steps.*
+1. Clone this repository onto the machine that will be used for development. *Prerequisite: Ensure Terraform is installed and setup on your build machine prior to completing the next steps.*
 1. Modify the `terraform.tfvars.sample` file to define values configured as variables within the module and file name local.tfvars extension if using this module as a root module.
 1. If using a module in a custom module you can also copy the modules being used into that modules Terraform implementation.
 1. Before deploying, confirm the correct subscription is selected using the following command:
 
-    ```
+``` cli
     az account show
-    ```
+```
 
 1. Change directory to the root Terraform module folder for your deployment
-
 1. Run `terraform init` to initialize this directory
 1. Run `terraform plan --var-file local.tfvars --out plan.out` to view the planned deployment
 1. Run `terraform apply plan.out && terraform show` to confirm the deployment

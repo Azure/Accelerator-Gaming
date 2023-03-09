@@ -59,3 +59,7 @@ variable "node_count" {
   type        = number
   description = "The number of nodes to be created in the pool"
 }
+variable "dh_sku_name" {
+  type        = string
+  description = "The disk sku name for the dedicated host"
+}

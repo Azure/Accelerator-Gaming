@@ -1,16 +1,20 @@
-# Welcome to the Azure Gaming Accelerator
+# Azure Gaming Landing Zone Accelerator
 
 ## Overview
 
+Enterprise-scale is an architectural approach and a reference implementation that enables effective construction and operation of landing zones on Azure, at scale. This approach aligns with the Azure road map and the Cloud Adoption Framework for Azure.
+
+The Azure Gaming Landing Zone Accelerator only addresses what gets deployed in the specific subscriptions, highlighted by the red boxes in the [architectural diagram below](#architectural-diagram). It is assumed that an appropriate platform foundation is already setup which may or may not be the official [ALZ platform foundation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation). This means that policies and governance should already be in place or should be set up after this implementation and are not a part of the scope this program. The policies applied to management groups in the hierarchy above the subscription will trickle down to the Enterprise-scale for AVD landing zone subscriptions.
+
 ## This Repository
 
+In this repository, you get access to various customer scenarios that can help accelerate the development and deployment of Azure Gaming scenarios that conform with best practices and guidelines. Each scenario aims to represent common customer experiences with the goal of accelerating the process of developing and deploying conforming Azure Gaming scenarios using IaC as well as providing a step-by-step learning experience.
 
-As the maintainer of this project, please make a few updates:
+## Scenarios
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+### [Game Server Hosting](/Game%20Server%20Hosting/)
+
+This scenario deploys Game Server Hosts using Azure Kubernetes Service in a Spoke Virtual Network. the automation will deploy a new spoke network with Azure Kubernetes cluster and a node pools. The automation will also deploy a Log Analytics workspace and a Log Analytics solution. The Nodes will be assigned to a dedicated host group and each node will be assigned its own Public IP address.
 
 ## Contributing
 
