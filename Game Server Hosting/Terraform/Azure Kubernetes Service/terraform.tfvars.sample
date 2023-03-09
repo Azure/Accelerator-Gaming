@@ -18,11 +18,14 @@ hub_subscription_id   = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 spoke_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 # Kubernetes Module
-aks_dns_prefix    = "aks"
-k8s_version       = "1.25.4"
-os_sku            = "Ubuntu"
-node_count        = 3
-node_vm_size      = "Standard_D2s_v3"
-node_pool_vm_size = "Standard_D2s_v3"
-node_pool_count   = 3
+## Cluster
+aks_dns_prefix = "aks"
+k8s_version    = "1.25.5"
+os_sku         = "Ubuntu"
+cluster_count  = 2 // Number of Cluster to be created
+dh_sku_name    = "FSv2-Type4"
+## Node Pools
+node_pool_vm_size = "Standard_F4s_v2"
+node_pool_count   = 2 // Number of Node Pools to be created in the Cluster
+node_count        = 2 // Number of Nodes in each Node Pool
 
