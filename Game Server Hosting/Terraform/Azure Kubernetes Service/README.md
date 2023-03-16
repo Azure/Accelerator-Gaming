@@ -20,19 +20,29 @@ This accelerator is to be used as starter kit and you can expand its functionali
 
 This scenario deploys Game Server Hosts using Azure Kubernetes Service in a Spoke Virtual Network. This solution deploys a new:
 
-- Spoke Network resources
-  - Virtual Network
-    - Subnet
-    - Public IP Addresses
+#### Spoke Network resources
 
-- Game Server Host resources
-  - AKS Clusters
-    - Default Node Pool
-    - Node Pool
+- Virtual Network
+  - Subnet
+  - Public IP Addresses
 
-- Insights
-  - Log Analytic Workspace
+#### Game Server Host resources
+
+- AKS Clusters
+  - Default Node Pool
+  - Node Pool
+  - Dedicated Host Groups
+
+#### Insights
+
+- Log Analytic Workspace
   - Log Analytic Solution
+
+## Terraform Module Structure
+
+| Module | Description |
+| -- | -- |
+| aks.tf |    |
 
 ## Prerequisites
 
@@ -41,7 +51,7 @@ This scenario deploys Game Server Hosts using Azure Kubernetes Service in a Spok
 - An Azure Subscription(s) where you or an identity you manage has `Owner` [RBAC permissions](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 - Ensure Encryption at Host feature is already enabled on the subscription. To enable: az feature register --name EncryptionAtHost  --namespace Microsoft.Compute. To validate: az feature show --name EncryptionAtHost --namespace Microsoft.Compute
 
-### Naming
+### Naming Convention
 
 Resource naming is configured by pre set resource abbreviation and variables. Pick a unique resource prefix that is between 1-4 alphanumeric characters in length without white spaces.
 
@@ -53,12 +63,13 @@ There will be an existing Hub Virtual Network with either a Gateway with access 
 
 ## Deployment Steps
 
-1. Modify the `terraform.tfvars` file to define the desired names, location, networking, and other variables
-2. Before deploying, confirm the correct subscription
-3. Change directory to the Terraform folder
-4. Run `terraform init` to initialize this directory
-5. Run `terraform plan --var-file local.tfvars --plan.out ` to view the planned deployment
-6. Run `terraform apply plan.out && terraform show` to confirm the deployment
+1. Rename the `terraform.tfvars.sample` file to `local.tfvars` and update the variables with your values
+1. Modify the `local.tfvars` file to define the desired names, location, networking, and other variables
+1. Before deploying, confirm the correct subscription
+1. Change directory to the Terraform folder
+1. Run `terraform init` to initialize this directory
+1. Run `terraform plan --var-file local.tfvars --plan.out ` to view the planned deployment
+1. Run `terraform apply plan.out && terraform show` to confirm the deployment
 
 [(Back to top)](#table-of-contents)
 
