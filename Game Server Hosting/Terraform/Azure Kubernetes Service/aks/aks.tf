@@ -11,7 +11,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   sku_tier            = "Paid"
   node_resource_group = "rg-node-${var.prefix}-${var.resource_location}-${count.index + 1}"
   default_node_pool {
-    name                     = "aksdnp${count.index + 1}" /*Max limit of 12 characters*/
+    name                     = "aksdnp${count.index + 1}" // Max limit of 12 characters
     tags                     = azurerm_resource_group.rg_aks.tags
     os_sku                   = var.os_sku
     vm_size                  = var.node_pool_vm_size
