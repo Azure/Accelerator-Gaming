@@ -25,13 +25,18 @@ This scenario deploys Game Server Hosts using Azure Kubernetes Service in a Spok
 - Virtual Network
   - Subnet
   - Public IP Addresses
+  - Network Security Group
 
 #### Game Server Host resources
 
 - AKS Clusters
   - Default Node Pool
-  - Node Pool
-  - Dedicated Host Groups
+  - Node Pools
+  
+- Dedicated Host Groups
+  - Dedicated Hosts
+  - User Assigned Identity
+  - Role Assignment
 
 #### Insights
 
