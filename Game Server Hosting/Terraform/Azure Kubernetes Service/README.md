@@ -14,7 +14,7 @@
 
 This guide is designed to help you get started with deploying Game Server Hosts using the provided Terraform template(s) within this repository. Before you deploy, it is recommended to review the template(s) to understand the resources that will be deployed and how they are configured.
 
-This accelerator is to be used as starter kit and you can expand its functionality by developing your own deployments. This scenario deploys a new Game Server Host workload, so it cannot be used to maintain, modify or add resources to an existing or already deployed Game Server Host workload from this accelerator.
+This accelerator is to be used as starter kit and you can expand its functionality by developing your own deployments. This scenario deploys a new Game Server Host, so it cannot be used to maintain, modify or add resources to an existing or already deployed Game Server Host workload from this accelerator.
 
 ### Game Server Host Architecture
 
