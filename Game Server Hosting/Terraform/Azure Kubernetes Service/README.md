@@ -1,4 +1,4 @@
-# Deploying Game Server Hosts with Azure Kubernetes Services
+# Deploying Game Server Hosts with Azure Kubernetes Services in Terraform
 
 ## Table of Contents
 
