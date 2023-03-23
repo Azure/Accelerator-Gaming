@@ -83,39 +83,38 @@ There will be an existing Hub Virtual Network with either a Gateway with access 
 
 1. Clone your repo with the following git command:
 
-```bash
-  git clone <https://github.com/Azure/accelerator-gaming.git>
-```  
+    ```bash
+    git clone <https://github.com/Azure/accelerator-gaming.git>
+    ```  
 
-2. Change your terminal into that new subdirectory:
+1. Change your terminal into that new subdirectory:
 
-```bash
-  cd Accelerator-Gaming/Game Server Hosting/Terraform/Azure Kubernetes Service
-  az account list --output table
-  az account set --subscription 'Your subscription ID'
-```
+    ```bash
+      cd Accelerator-Gaming/Game Server Hosting/Terraform/Azure Kubernetes Service
+      az account list --output table
+      az account set --subscription 'Your subscription ID'
+    ```
 
-3. Rename terraform.tfvars.example
+1. Rename terraform.tfvars.example
+1. Set configuration variables:
 
-4. Set configuration variables:
-
-- resource_location = "Your Azure Region"
-- resource_tags = "Your Tags"
-- Prefix = "Your Prefix"
-- rg_hub = "Your Hub Resource Group Name"
-- hub_vnet_name = "Your Hub Virtual Network Name"
-- spoke_vnet_address_space = ["Your Spoke Virtual Network Address Space"]
-- subnet_address_prefix = ["Your Subnet Address Space for your node pool"]
-- spoke_subscription_id = "Your spoke subscription ID"
-- hub_subscription_id = "Your hub subscription ID"
-- aks_dns_prefix = "Your AKS DNS Prefix"
-- k8s_version = "Kubernetes Version you want to set"
-- os_sku = "Chose the OS Sku you want to use"
-- cluster_count = "Chose the number of AKS clusters you want to be created"
-- dh_sku_name = "Chose the Dedicated Host SKU you want to use, must be the sku you are going to use for your AKS nodes. Must be in dedicated host group format"
-- node_pool_vm_size = "Chose the VM Size you want to use for your AKS nodes, should be the same as your Dedicated Host SKU"
-- node_pool_count = "Chose the number of node pools you want to be created in the cluster"
-- node_count = "Chose the number of nodes you want to be created in the node pool"
+    - resource_location = "Your Azure Region"
+    - resource_tags = "Your Tags"
+    - Prefix = "Your Prefix"
+    - rg_hub = "Your Hub Resource Group Name"
+    - hub_vnet_name = "Your Hub Virtual Network Name"
+    - spoke_vnet_address_space = ["Your Spoke Virtual Network Address Space"]
+    - subnet_address_prefix = ["Your Subnet Address Space for your node pool"]
+    - spoke_subscription_id = "Your spoke subscription ID"
+    - hub_subscription_id = "Your hub subscription ID"
+    - aks_dns_prefix = "Your AKS DNS Prefix"
+    - k8s_version = "Kubernetes Version you want to set"
+    - os_sku = "Chose the OS Sku you want to use"
+    - cluster_count = "Chose the number of AKS clusters you want to be created"
+    - dh_sku_name = "Chose the Dedicated Host SKU you want to use, must be the sku you are going to use for your AKS nodes. Must be in dedicated host group format"
+    - node_pool_vm_size = "Chose the VM Size you want to use for your AKS nodes, should be the same as your Dedicated Host SKU"
+    - node_pool_count = "Chose the number of node pools you want to be created in the cluster"
+    - node_count = "Chose the number of nodes you want to be created in the node pool"
 
 ## Deployment Steps
 
