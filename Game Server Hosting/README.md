@@ -2,6 +2,12 @@
 
 ## Overview
 
+Azure Landing Zone Accelerators are architectural guidance, reference architecture, reference implementations and automation packaged to deploy workload platforms on Azure at Scale and aligned with industry proven practices.
+
+The Game Server Hosting accelerator represents the strategic design path and target technical state for Game Server Hosts deployment.
+
+It is assumed that an appropriate platform foundation is already setup which may or may not be the official ESLZ platform foundation. This means that policies and governance should already be in place or should be setup after this implementation and are not a part of the scope this program. The policies applied to management groups in the hierarchy above the subscription will trickle down to the subscription and resources deployed in this accelerator.
+
 ## Game Server Host Deployment
 
 Get started with deploying a Game Server Hosts using the provided Terraform or Bicep template(s) within this repository. Before you deploy, it is recommended to review the template(s) to understand the resources that will be deployed and how they are configured.
@@ -12,8 +18,8 @@ Get started with deploying a Game Server Hosts using the provided Terraform or B
 
 | Deployment Type | Link |
 | :----------------------- | :---------------------------------: |
-|Terraform | [![Terraform](./docs/icons/terraform.png)](./Terraform/) |
-|Bicep | [![Bicep](./docs/icons/bicep.png)](./Bicep/) |
+| Terraform | [![Terraform](./docs/icons/terraform.png)](./Terraform/) |
+| Bicep     | [![Bicep](./docs/icons/bicep.png)](./Bicep/)             |
 
 ## Contributing
 
