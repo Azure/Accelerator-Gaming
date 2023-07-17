@@ -8,7 +8,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   tags                = azurerm_resource_group.rg_aks.tags
   dns_prefix          = var.aks_dns_prefix
   kubernetes_version  = var.k8s_version
-  sku_tier            = "Paid"
+  sku_tier            = "Standard"
   node_resource_group = "rg-node-${var.prefix}-${var.resource_location}-${count.index + 1}"
   default_node_pool {
     name                     = "aksdnp${count.index + 1}" // Max limit of 12 characters
