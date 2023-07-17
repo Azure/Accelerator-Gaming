@@ -18,6 +18,7 @@ resource workspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   }
 }
 
+// FIX ME: Won't deploy - may be deprecated?
 // resource solution 'Microsoft.OperationsManagement/solutions@2015-11-01-preview' = {
 //   name: 'containerinsights'
 //   location: location

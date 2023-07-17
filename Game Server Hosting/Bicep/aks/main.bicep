@@ -8,6 +8,7 @@ param nodePoolPublicIPPrefixResourceId string
 param logAnalyticsWorkspaceResourceId string
 param spokeVnetSubnetId string
 param clusterCount int
+param dhSku string
 
 var resourceGroupNameAKS = 'rg-aks-${namePrefix}-${location}'
 var resourceGroupNameIdentity = 'rg-identity-${namePrefix}-${location}'
@@ -29,6 +30,8 @@ module dedicatedHostGroup './hostGroup.bicep' = {
     location: location
     namePrefix: namePrefix
     tags: tags
+    clusterCount: clusterCount
+    dhSku: dhSku
   }
 }
 

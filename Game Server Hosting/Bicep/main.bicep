@@ -1,9 +1,12 @@
-param location string = 'eastus2'
-param hubVirtualNetworkId string = '/subscriptions/c3803411-d6c0-474d-9200-4c197625f56d/resourceGroups/rg-core-eastus2/providers/Microsoft.Network/virtualNetworks/core-vnet-eastus2'
-param spokeVirtualNetworkAddressSpace string = '172.16.0.0/24'
-param spokeVirtualNetworkSubnetAddressPrefix string = '172.16.0.0/24'
+param location string
+param hubVirtualNetworkId string
+param spokeVirtualNetworkAddressSpace string
+param spokeVirtualNetworkSubnetAddressPrefix string
 param tags object = {}
-param namePrefix string = 'gaacel'
+param namePrefix string
+// dedicated host pool and AKS parameters
+param clusterCount int = 2
+param dedicatedHostPoolSku string = 'FSv2-Type4'
 
 module network 'network/main.bicep' = {
   name: 'network'
@@ -34,10 +37,11 @@ module aks 'aks/main.bicep' = {
     location: location
     tags: tags
     namePrefix: namePrefix
-    clusterCount: 2
+    clusterCount: clusterCount
     defaultNodePublicIPPrefixResourceId: network.outputs.defaultNodePublicIPPrefixResourceId
     nodePoolPublicIPPrefixResourceId: network.outputs.nodePublicIPPrefixResourceId
     spokeVnetSubnetId: network.outputs.spokeVnetSubnetId
     logAnalyticsWorkspaceResourceId: insights.outputs.loggingWorkspaceId
+    dhSku: dedicatedHostPoolSku
   }
 }
