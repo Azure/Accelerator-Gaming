@@ -1,3 +1,9 @@
+// Create Resource Group for AKS Cluster
+resource "azurerm_resource_group" "rg_aks" {
+  name     = "rg-aks-${var.prefix}-${var.resource_location}"
+  location = var.resource_location
+  tags     = var.resource_tags
+}
 
 // Create a AKS Cluster
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
@@ -7,7 +13,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   resource_group_name = azurerm_resource_group.rg_aks.name
   tags                = azurerm_resource_group.rg_aks.tags
   dns_prefix          = var.aks_dns_prefix
-  kubernetes_version  = var.k8s_version
   sku_tier            = "Standard"
   node_resource_group = "rg-node-${var.prefix}-${var.resource_location}-${count.index + 1}"
   default_node_pool {

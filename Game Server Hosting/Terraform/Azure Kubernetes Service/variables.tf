@@ -49,10 +49,6 @@ variable "aks_dns_prefix" {
   type        = string
   description = "The AKS DNS prefix"
 }
-variable "k8s_version" {
-  type        = string
-  description = "The AKS Kubernetes version"
-}
 variable "os_sku" {
   type        = string
   description = "The AKS OS SKU"

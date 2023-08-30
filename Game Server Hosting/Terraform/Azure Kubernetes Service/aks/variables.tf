@@ -17,10 +17,7 @@ variable "aks_dns_prefix" {
   type        = string
   description = "The AKS DNS prefix"
 }
-variable "k8s_version" {
-  type        = string
-  description = "The kubernetes version"
-}
+
 variable "aks_law_id" {
   type        = string
   description = "The log analytics workspace id"

@@ -34,7 +34,6 @@ module "aks" {
   prefix            = var.prefix
   # AKS Cluster
   aks_dns_prefix        = var.aks_dns_prefix
-  k8s_version           = var.k8s_version
   aks_cluster_subnet_id = module.network.subnet_id
   os_sku                = var.os_sku
   aks_law_id            = module.insights.id

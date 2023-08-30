@@ -20,6 +20,13 @@ resource "azurerm_dedicated_host" "dh" {
   auto_replace_on_failure = true
 }
 
+//Create a Resource Group for Identity
+resource "azurerm_resource_group" "rg_identity" {
+  name     = "rg-identity-${var.prefix}-${var.resource_location}"
+  location = var.resource_location
+  tags     = var.resource_tags
+}
+
 // Creating the User Assigned Identity for the Dedicated Host Group
 resource "azurerm_user_assigned_identity" "aks_uai" {
   name                = "uai-aks-${var.prefix}-${var.resource_location}"
